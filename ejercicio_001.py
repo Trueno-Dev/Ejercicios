@@ -1,14 +1,10 @@
 ## JUEGOS OLIMPICOS 2024    
 
-from random import randint
+import random
 
-
-eventos = [
-]
-
-participantes = [
-]
-
+ganadores_list = []
+eventos = []
+participantes = []
 medallas = ["oro", "plata", "bronce"]
 
 
@@ -26,23 +22,35 @@ def agregar_participantes():
 
 def registrar_eventos():
     contador = int(input("¿Cuántos Eventos, desea agregar? \n"))
-    for i in range(contador):
+    for _ in range(contador):
         nombre = str(input("Nombre del evento: "))
         eventos.append(nombre)
         print("Evento añadido con exito")
+    return eventos
 
-def ganador():
-    participantes[0]["nombre"]
-    participantes[0]["pais"]
-    medallas[0]
-    eventos[0]
-    print(f"El ganador de la medalla de {medallas[0]} en el evento {eventos[0]} es: {participantes[0]['nombre']} de {participantes[0]['pais']}")
+def juegos_olimpicos():
+    for participante in participantes:
+        medalla_ganadora = random.choice(medallas)
+        evento_ganador = random.choice(eventos)
+
+        ganador = {
+        "nombre": participante['nombre'],
+        "pais": participante['pais'],
+        "medalla": medalla_ganadora,
+        "evento": evento_ganador
+        }
+
+        ganadores_list.append(ganador)
+
+def mostrar_ganadores():
+    print("\nResultados de los Juegos Olímpicos 2024:")
+    for i, ganador in enumerate(ganadores_list, start=1):
+        print(f"Ganador {i}: {ganador['nombre']} de {ganador['pais']} ganó la medalla de {ganador['medalla']} en el evento de {ganador['evento']}")
 
 
-#registrar_eventos()
 
+
+registrar_eventos()
 agregar_participantes()
-
-
-#ganador()
-
+juegos_olimpicos()
+mostrar_ganadores()
